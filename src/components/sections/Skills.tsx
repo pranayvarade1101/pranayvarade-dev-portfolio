@@ -40,156 +40,168 @@ export const Skills: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="section-spacing bg-gradient-subtle">
-      <div className="container-professional">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Technical Skills
+    <section id="skills" className="section-modern bg-gradient-subtle relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-40 left-10 w-96 h-96 bg-gradient-accent rounded-full blur-3xl floating-animation" />
+        <div className="absolute bottom-32 right-10 w-80 h-80 bg-gradient-glass rounded-full blur-2xl animate-morph" />
+      </div>
+
+      <div className="container-modern relative z-10">
+        {/* Enhanced Header */}
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8">
+            Technical <span className="bg-gradient-accent bg-clip-text text-transparent">Expertise</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            A comprehensive toolkit for building modern, scalable applications
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
+            A comprehensive toolkit for building modern, scalable applications that drive innovation
           </p>
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        {/* Enhanced Skills Grid */}
+        <div className="grid lg:grid-cols-3 gap-10 mb-20">
           {skillCategories.map((category, categoryIndex) => (
-            <Card 
+            <div 
               key={category.title}
-              className="card-professional elegant-hover glow-border"
+              className="card-modern glow-effect group"
               style={{ 
-                animation: `stagger 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${categoryIndex * 0.3}s both` 
+                animation: `stagger 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${categoryIndex * 0.4}s both` 
               }}
             >
-              <CardHeader className="pb-4">
-                <CardTitle className="flex items-center gap-3 text-lg">
-                  <div className={`p-2 rounded-lg ${category.bgColor}`}>
-                    <category.icon className={`h-5 w-5 ${category.color}`} />
+              <div className="p-8">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="p-4 bg-gradient-accent rounded-2xl group-hover:scale-110 transition-transform duration-300">
+                    <category.icon className="h-8 w-8 text-white" />
                   </div>
-                  {category.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skill.name} className="space-y-2">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <span className="font-medium text-foreground text-sm">
-                          {skill.name}
+                  <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
+                    {category.title}
+                  </h3>
+                </div>
+                
+                <div className="space-y-8">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div key={skill.name} className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <span className="font-bold text-foreground text-lg group-hover:text-accent transition-colors duration-300">
+                            {skill.name}
+                          </span>
+                          <span 
+                            className={`px-3 py-1 rounded-xl text-xs font-bold ${getSkillLevel(skill.level).color} bg-current/10`}
+                          >
+                            {getSkillLevel(skill.level).label}
+                          </span>
+                        </div>
+                        <span className="text-sm text-muted-foreground font-medium">
+                          {skill.experience}
                         </span>
-                        <Badge 
-                          variant="secondary" 
-                          className={`text-xs ${getSkillLevel(skill.level).color}`}
-                        >
-                          {getSkillLevel(skill.level).label}
-                        </Badge>
                       </div>
-                      <span className="text-xs text-muted-foreground">
-                        {skill.experience}
-                      </span>
+                      <div className="relative">
+                        <div className="h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+                          <div 
+                            className="h-full bg-gradient-accent rounded-full transition-all duration-1000 ease-out relative overflow-hidden"
+                            style={{ 
+                              width: `${skill.level}%`,
+                              animationDelay: `${categoryIndex * 0.2 + skillIndex * 0.1}s`
+                            }}
+                          >
+                            <div className="absolute inset-0 bg-white/20 animate-shimmer" />
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div className="relative">
-                      <Progress 
-                        value={skill.level} 
-                        className="h-2"
-                      />
-                      <div 
-                        className="absolute top-0 left-0 h-2 bg-accent rounded-full transition-all duration-1000 ease-out"
-                        style={{ 
-                          width: `${skill.level}%`,
-                          animationDelay: `${categoryIndex * 0.2 + skillIndex * 0.1}s`
-                        }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
+                  ))}
+                </div>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* Specializations */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-foreground text-center mb-8">
-            Core Specializations
+        {/* Enhanced Specializations */}
+        <div className="mb-20">
+          <h3 className="text-3xl font-bold text-foreground text-center mb-12">
+            Core <span className="text-accent">Specializations</span>
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-5xl mx-auto">
             {skills.specializations.map((spec, index) => (
-              <Card 
+              <div 
                 key={spec.name}
-                className="card-professional elegant-hover text-center group glow-border"
+                className="card-glass p-8 text-center group glow-effect"
                 style={{ 
-                  animation: `bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) ${index * 0.1}s both` 
+                  animation: `bounce-in 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) ${index * 0.2}s both` 
                 }}
               >
-                <CardContent className="p-6">
-                  <div className="mb-3">
-                    <div className="text-2xl font-bold text-accent group-hover:scale-110 transition-transform duration-200">
-                      {spec.level}%
-                    </div>
+                <div className="mb-6">
+                  <div className="text-4xl font-bold bg-gradient-accent bg-clip-text text-transparent group-hover:scale-125 transition-transform duration-300">
+                    {spec.level}%
                   </div>
-                  <h4 className="font-medium text-foreground text-sm group-hover:text-accent transition-colors duration-200">
-                    {spec.name}
-                  </h4>
-                </CardContent>
-              </Card>
+                </div>
+                <h4 className="font-bold text-foreground text-lg group-hover:text-accent transition-colors duration-300">
+                  {spec.name}
+                </h4>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Technology Tags */}
-        <div className="text-center">
-          <h3 className="text-xl font-semibold text-foreground mb-6">
-            Complete Technology Stack
+        {/* Enhanced Technology Stack */}
+        <div className="text-center mb-20">
+          <h3 className="text-2xl font-bold text-foreground mb-8">
+            Complete Technology <span className="text-accent">Arsenal</span>
           </h3>
-          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
             {[
               ...skills.frontend.map(s => s.name),
               ...skills.backend.map(s => s.name),
               ...skills.tools.map(s => s.name),
               'EJS', 'Puppeteer', 'PM2', 'Bitbucket', 'EdTech', 'Data Visualization'
             ].map((tech, index) => (
-              <Badge 
+              <span 
                 key={tech} 
-                variant="secondary" 
-                className="skill-tag text-sm px-4 py-2 hover:scale-105 transition-transform duration-200"
+                className="skill-badge px-6 py-3 text-lg font-medium rounded-2xl"
                 style={{ 
-                  animation: `fadeInDelayed 1s ease-out ${index * 0.05}s both` 
+                  animation: `fade-in-delayed 1s ease-out ${index * 0.05}s both` 
                 }}
               >
                 {tech}
-              </Badge>
+              </span>
             ))}
           </div>
         </div>
 
-        {/* Skill Development Timeline */}
-        <div className="mt-16">
-          <Card className="card-professional bg-accent/5 border-accent/20">
-            <CardContent className="p-8">
-              <h3 className="text-xl font-bold text-foreground text-center mb-6">
-                Professional Growth Journey
-              </h3>
-              <div className="grid md:grid-cols-3 gap-6 text-center">
-                <div className="space-y-2">
-                  <div className="text-2xl font-bold text-accent">2022</div>
-                  <div className="text-sm text-muted-foreground">Started MSc.</div>
-                  <div className="text-xs text-muted-foreground">Foundation Building</div>
+        {/* Enhanced Growth Timeline */}
+        <div className="mt-20">
+          <div className="card-glass p-12 rounded-3xl glow-effect">
+            <h3 className="text-2xl font-bold text-foreground text-center mb-10">
+              Professional Growth <span className="text-accent">Journey</span>
+            </h3>
+            <div className="grid md:grid-cols-3 gap-10 text-center">
+              <div className="space-y-4 group">
+                <div className="text-6xl mb-6">🎓</div>
+                <div className="text-4xl font-bold bg-gradient-accent bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                  2022
                 </div>
-                <div className="space-y-2">
-                  <div className="text-2xl font-bold text-accent">2024</div>
-                  <div className="text-sm text-muted-foreground">Joined Industry</div>
-                  <div className="text-xs text-muted-foreground">Rapid Skill Development</div>
-                </div>
-                <div className="space-y-2">
-                  <div className="text-2xl font-bold text-accent">2025</div>
-                  <div className="text-sm text-muted-foreground">Leading Projects</div>
-                  <div className="text-xs text-muted-foreground">Mentoring & Innovation</div>
-                </div>
+                <div className="text-lg font-semibold text-foreground">Started MSc.</div>
+                <div className="text-muted-foreground">Foundation Building & Academic Excellence</div>
               </div>
-            </CardContent>
-          </Card>
+              <div className="space-y-4 group">
+                <div className="text-6xl mb-6">🚀</div>
+                <div className="text-4xl font-bold bg-gradient-accent bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                  2024
+                </div>
+                <div className="text-lg font-semibold text-foreground">Joined Industry</div>
+                <div className="text-muted-foreground">Rapid Skill Development & Real-world Impact</div>
+              </div>
+              <div className="space-y-4 group">
+                <div className="text-6xl mb-6">👑</div>
+                <div className="text-4xl font-bold bg-gradient-accent bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
+                  2025
+                </div>
+                <div className="text-lg font-semibold text-foreground">Leading Projects</div>
+                <div className="text-muted-foreground">Mentoring, Innovation & Technical Leadership</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

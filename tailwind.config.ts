@@ -29,19 +29,19 @@ export default {
 				mono: ['var(--font-mono)'],
 			},
 			colors: {
-				// Professional Navy Palette
-				navy: {
-					50: 'hsl(var(--navy-50))',
-					100: 'hsl(var(--navy-100))',
-					200: 'hsl(var(--navy-200))',
-					300: 'hsl(var(--navy-300))',
-					400: 'hsl(var(--navy-400))',
-					500: 'hsl(var(--navy-500))',
-					600: 'hsl(var(--navy-600))',
-					700: 'hsl(var(--navy-700))',
-					800: 'hsl(var(--navy-800))',
-					900: 'hsl(var(--navy-900))',
-					950: 'hsl(var(--navy-950))',
+				// Sophisticated Modern Palette
+				midnight: {
+					50: 'hsl(var(--midnight-50))',
+					100: 'hsl(var(--midnight-100))',
+					200: 'hsl(var(--midnight-200))',
+					300: 'hsl(var(--midnight-300))',
+					400: 'hsl(var(--midnight-400))',
+					500: 'hsl(var(--midnight-500))',
+					600: 'hsl(var(--midnight-600))',
+					700: 'hsl(var(--midnight-700))',
+					800: 'hsl(var(--midnight-800))',
+					900: 'hsl(var(--midnight-900))',
+					950: 'hsl(var(--midnight-950))',
 				},
 				// Professional Slate Palette
 				slate: {
@@ -56,14 +56,14 @@ export default {
 					800: 'hsl(var(--slate-800))',
 					900: 'hsl(var(--slate-900))',
 				},
-				// Professional Teal Accent
-				teal: {
-					100: 'hsl(var(--teal-100))',
-					200: 'hsl(var(--teal-200))',
-					300: 'hsl(var(--teal-300))',
-					400: 'hsl(var(--teal-400))',
-					500: 'hsl(var(--teal-500))',
-					600: 'hsl(var(--teal-600))',
+				// Sophisticated Emerald Accent
+				emerald: {
+					100: 'hsl(var(--emerald-100))',
+					200: 'hsl(var(--emerald-200))',
+					300: 'hsl(var(--emerald-300))',
+					400: 'hsl(var(--emerald-400))',
+					500: 'hsl(var(--emerald-500))',
+					600: 'hsl(var(--emerald-600))',
 				},
 				// Semantic Tokens
 				border: 'hsl(var(--border))',
@@ -108,12 +108,16 @@ export default {
 				'gradient-accent': 'var(--gradient-accent)',
 				'gradient-subtle': 'var(--gradient-subtle)',
 				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-glass': 'var(--gradient-glass)',
+				'gradient-card': 'var(--gradient-card)',
 			},
 			boxShadow: {
 				'soft': 'var(--shadow-soft)',
 				'medium': 'var(--shadow-medium)',
 				'strong': 'var(--shadow-strong)',
 				'accent': 'var(--shadow-accent)',
+				'glass': 'var(--shadow-glass)',
+				'glow': 'var(--shadow-glow)',
 			},
 			borderRadius: {
 				lg: 'var(--radius-lg)',
@@ -224,7 +228,23 @@ export default {
 				},
 				'float': {
 					'0%, 100%': { transform: 'translateY(0px)' },
-					'50%': { transform: 'translateY(-10px)' }
+					'50%': { transform: 'translateY(-20px)' }
+				},
+				'morph': {
+					'0%, 100%': { 
+						borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' 
+					},
+					'50%': { 
+						borderRadius: '30% 60% 70% 40% / 50% 60% 30% 60%' 
+					}
+				},
+				'pulse-glow': {
+					'0%, 100%': { 
+						boxShadow: '0 0 5px hsl(var(--accent) / 0.5)' 
+					},
+					'50%': { 
+						boxShadow: '0 0 30px hsl(var(--accent) / 0.8), 0 0 50px hsl(var(--accent) / 0.6)' 
+					}
 				},
 				'glow': {
 					'0%, 100%': { 
@@ -264,8 +284,10 @@ export default {
 				'fade-in-delayed': 'fade-in-delayed 0.8s ease-out',
 				'scale-in': 'scale-in 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
 				'bounce-in': 'bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-				'float': 'float 3s ease-in-out infinite',
+				'float': 'float 6s ease-in-out infinite',
 				'glow': 'glow 2s ease-in-out infinite',
+				'morph': 'morph 8s ease-in-out infinite',
+				'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
 				'shimmer': 'shimmer 2s linear infinite',
 				'stagger': 'stagger 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
 			}

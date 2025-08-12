@@ -31,195 +31,198 @@ export const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="section-spacing bg-background">
-      <div className="container-professional">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Featured Projects
+    <section id="projects" className="section-modern bg-background relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-32 left-20 w-80 h-80 bg-gradient-accent rounded-full blur-3xl animate-morph" />
+        <div className="absolute bottom-40 right-20 w-96 h-96 bg-gradient-glass rounded-full blur-2xl floating-animation" />
+      </div>
+
+      <div className="container-modern relative z-10">
+        {/* Enhanced Header */}
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8">
+            Featured <span className="bg-gradient-accent bg-clip-text text-transparent">Projects</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Showcasing end-to-end solutions that drive real business impact
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto mb-12 leading-relaxed">
+            Showcasing end-to-end solutions that drive real business impact and innovation
           </p>
 
-          {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-3">
+          {/* Enhanced Filter Buttons */}
+          <div className="flex flex-wrap justify-center gap-4">
             {filters.map((filter) => (
               <Button
                 key={filter.id}
                 variant={activeFilter === filter.id ? "default" : "outline"}
-                size="sm"
+                size="lg"
                 onClick={() => setActiveFilter(filter.id)}
-                className={`gap-2 ${
+                className={`gap-3 px-6 py-3 rounded-2xl text-lg font-medium transition-all duration-300 ${
                   activeFilter === filter.id 
-                    ? 'btn-accent' 
-                    : 'hover:bg-secondary'
+                    ? 'btn-gradient shadow-glow scale-105' 
+                    : 'glass-effect hover:scale-105'
                 }`}
               >
-                <Filter className="h-4 w-4" />
+                <Filter className="h-5 w-5" />
                 {filter.label}
               </Button>
             ))}
           </div>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        {/* Enhanced Projects Grid */}
+        <div className="grid md:grid-cols-2 gap-10 max-w-7xl mx-auto">
           {filteredProjects.map((project, index) => (
-            <Card 
+            <div 
               key={index}
-              className="card-professional elegant-hover group overflow-hidden glow-border"
+              className="card-modern group overflow-hidden glow-effect"
               style={{ 
-                animation: `stagger 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.2}s both` 
+                animation: `stagger 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.3}s both` 
               }}
             >
-              <CardHeader className="p-6 pb-4">
-                <div className="flex items-start justify-between gap-4">
+              <div className="p-8">
+                <div className="flex items-start justify-between gap-4 mb-6">
                   <div className="flex-1">
-                    <CardTitle className="text-xl font-bold text-foreground group-hover:text-accent transition-colors duration-200 mb-2">
+                    <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors duration-300 mb-3">
                       {project.title}
-                    </CardTitle>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="h-4 w-4" />
-                        <span>{project.year}</span>
+                    </h3>
+                    <div className="flex items-center gap-6 text-muted-foreground mb-4">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="h-5 w-5" />
+                        <span className="font-medium">{project.year}</span>
                       </div>
-                      <Badge 
-                        {...getStatusBadge(project.status)}
-                        className={getStatusBadge(project.status).className}
+                      <div 
+                        className={`px-4 py-2 rounded-xl text-sm font-bold ${getStatusBadge(project.status).className}`}
                       >
                         {project.status}
-                      </Badge>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </CardHeader>
 
-              <CardContent className="p-6 pt-0">
-                {/* Description */}
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                {/* Enhanced Description */}
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6 group-hover:text-foreground transition-colors duration-300">
                   {project.description}
                 </p>
 
-                {/* Key Features */}
-                <div className="mb-4">
-                  <h4 className="text-sm font-medium text-foreground mb-2">Key Features:</h4>
-                  <ul className="space-y-1">
+                {/* Enhanced Features */}
+                <div className="mb-6">
+                  <h4 className="text-lg font-bold text-foreground mb-4">Key Features:</h4>
+                  <ul className="space-y-3">
                     {project.features.slice(0, 3).map((feature, featureIndex) => (
-                      <li key={featureIndex} className="text-xs text-muted-foreground flex items-start gap-2">
-                        <div className="w-1 h-1 bg-accent rounded-full mt-2 flex-shrink-0" />
-                        <span>{feature}</span>
+                      <li key={featureIndex} className="flex items-start gap-3 text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                        <div className="w-2 h-2 bg-accent rounded-full mt-2.5 flex-shrink-0 group-hover:scale-125 transition-transform duration-300" />
+                        <span className="text-lg">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                {/* Impact */}
+                {/* Enhanced Impact */}
                 {project.impact && (
-                  <div className="mb-4 p-3 bg-accent/5 border border-accent/20 rounded-lg">
-                    <div className="flex items-start gap-2">
-                      <TrendingUp className="h-4 w-4 text-accent mt-0.5 flex-shrink-0" />
-                      <p className="text-sm text-foreground font-medium">
+                  <div className="mb-6 card-glass p-6 rounded-2xl glow-effect">
+                    <div className="flex items-start gap-3">
+                      <TrendingUp className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
+                      <p className="text-lg text-foreground font-semibold">
                         {project.impact}
                       </p>
                     </div>
                   </div>
                 )}
 
-                {/* Technologies */}
-                <div className="mb-6">
-                  <h4 className="text-sm font-medium text-foreground mb-2">Technologies:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.slice(0, 4).map((tech) => (
-                      <Badge 
+                {/* Enhanced Technologies */}
+                <div className="mb-8">
+                  <h4 className="text-lg font-bold text-foreground mb-4">Technologies:</h4>
+                  <div className="flex flex-wrap gap-3">
+                    {project.technologies.slice(0, 4).map((tech, techIndex) => (
+                      <span 
                         key={tech} 
-                        variant="secondary" 
-                        className="skill-tag text-xs"
+                        className="skill-badge px-4 py-2 rounded-xl text-sm font-medium"
+                        style={{ 
+                          animation: `fade-in-delayed 1s ease-out ${techIndex * 0.1}s both` 
+                        }}
                       >
                         {tech}
-                      </Badge>
+                      </span>
                     ))}
                     {project.technologies.length > 4 && (
-                      <Badge variant="secondary" className="skill-tag text-xs">
+                      <span className="skill-badge px-4 py-2 rounded-xl text-sm font-medium">
                         +{project.technologies.length - 4} more
-                      </Badge>
+                      </span>
                     )}
                   </div>
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex items-center gap-3 pt-4 border-t border-border">
+                {/* Enhanced Action Buttons */}
+                <div className="flex items-center gap-4 pt-6 border-t border-border/50">
                   <Button
                     variant="outline"
-                    size="sm"
-                    className="flex-1 gap-2 text-xs"
+                    size="lg"
+                    className="flex-1 gap-3 glass-effect rounded-xl text-lg"
                     disabled
                   >
-                    <Github className="h-4 w-4" />
-                    Private Repo
+                    <Github className="h-5 w-5" />
+                    Private Repository
                   </Button>
                   <Button
                     variant="outline"
-                    size="sm"
-                    className="flex-1 gap-2 text-xs"
+                    size="lg"
+                    className="flex-1 gap-3 glass-effect rounded-xl text-lg"
                     disabled
                   >
-                    <ExternalLink className="h-4 w-4" />
-                    Enterprise
+                    <ExternalLink className="h-5 w-5" />
+                    Enterprise Access
                   </Button>
                 </div>
 
-                {/* Additional Info */}
-                <div className="mt-4 text-xs text-muted-foreground">
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-1">
-                      <Users className="h-3 w-3" />
-                      <span>Team Project</span>
+                {/* Enhanced Additional Info */}
+                <div className="mt-6 text-muted-foreground">
+                  <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-2">
+                      <Users className="h-4 w-4" />
+                      <span className="font-medium">Team Collaboration</span>
                     </div>
-                    <div className="capitalize">
+                    <div className="capitalize font-medium">
                       {project.category} Development
                     </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <Card className="card-professional bg-gradient-subtle border-2 border-accent/20 max-w-2xl mx-auto">
-            <CardContent className="p-8">
-              <h3 className="text-xl font-bold text-foreground mb-4">
-                Interested in My Work?
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                I'm always excited to discuss new opportunities and challenging projects. 
-                Let's connect and explore how we can work together.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  className="btn-accent gap-2"
-                  onClick={() => {
-                    const element = document.getElementById('contact');
-                    element?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  <ExternalLink className="h-4 w-4" />
-                  Get In Touch
-                </Button>
-                <Button
-                  variant="outline"
-                  asChild
-                  className="gap-2"
-                >
-                  <a href="/resume-pranay-varade.pdf" download="Pranay_Varade_Resume.pdf">
-                    View Full Resume
-                  </a>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+        {/* Enhanced Call to Action */}
+        <div className="text-center mt-24">
+          <div className="card-glass p-12 rounded-3xl max-w-3xl mx-auto glow-effect">
+            <h3 className="text-3xl font-bold text-foreground mb-6">
+              Ready to <span className="text-accent">Collaborate?</span>
+            </h3>
+            <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
+              I'm always excited to discuss new opportunities and challenging projects. 
+              Let's connect and explore how we can create something amazing together.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button
+                className="btn-gradient gap-3 px-8 py-4 text-lg rounded-2xl shadow-glow"
+                onClick={() => {
+                  const element = document.getElementById('contact');
+                  element?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                <ExternalLink className="h-5 w-5" />
+                Start a Conversation
+              </Button>
+              <Button
+                variant="outline"
+                asChild
+                className="gap-3 px-8 py-4 text-lg rounded-2xl glass-effect"
+              >
+                <a href="/resume-pranay-varade.pdf" download="Pranay_Varade_Resume.pdf">
+                  View Complete Resume
+                </a>
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
