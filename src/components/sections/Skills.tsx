@@ -57,9 +57,9 @@ export const Skills: React.FC = () => {
           {skillCategories.map((category, categoryIndex) => (
             <Card 
               key={category.title}
-              className="card-professional hover-lift"
+              className="card-professional elegant-hover glow-border"
               style={{ 
-                animation: `fadeInDelayed 0.6s ease-out ${categoryIndex * 0.2}s both` 
+                animation: `stagger 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${categoryIndex * 0.3}s both` 
               }}
             >
               <CardHeader className="pb-4">
@@ -118,9 +118,9 @@ export const Skills: React.FC = () => {
             {skills.specializations.map((spec, index) => (
               <Card 
                 key={spec.name}
-                className="card-professional hover-lift text-center group"
+                className="card-professional elegant-hover text-center group glow-border"
                 style={{ 
-                  animation: `fadeInDelayed 0.8s ease-out ${index * 0.1}s both` 
+                  animation: `bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) ${index * 0.1}s both` 
                 }}
               >
                 <CardContent className="p-6">

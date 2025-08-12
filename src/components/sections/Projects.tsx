@@ -68,9 +68,9 @@ export const Projects: React.FC = () => {
           {filteredProjects.map((project, index) => (
             <Card 
               key={index}
-              className="card-professional hover-lift group overflow-hidden"
+              className="card-professional elegant-hover group overflow-hidden glow-border"
               style={{ 
-                animation: `fadeInDelayed 0.6s ease-out ${index * 0.1}s both` 
+                animation: `stagger 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${index * 0.2}s both` 
               }}
             >
               <CardHeader className="p-6 pb-4">

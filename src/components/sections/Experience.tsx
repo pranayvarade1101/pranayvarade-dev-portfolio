@@ -26,7 +26,7 @@ export const Experience: React.FC = () => {
             <div key={companyIndex} className="relative">
               {/* Company Header */}
               <div className="mb-8">
-                <Card className="card-professional border-l-4 border-l-accent">
+                <Card className="card-professional border-l-4 border-l-accent elegant-hover">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <div className="p-3 bg-accent/10 rounded-xl">
@@ -61,7 +61,7 @@ export const Experience: React.FC = () => {
                     {/* Timeline Dot */}
                     <div className="absolute -left-11 top-6 w-4 h-4 bg-accent rounded-full border-4 border-background shadow-soft" />
                     
-                    <Card className="card-professional hover-lift">
+                    <Card className="card-professional elegant-hover glow-border">
                       <CardContent className="p-6">
                         <div className="mb-4">
                           <h4 className="text-lg md:text-xl font-semibold text-foreground mb-2">
@@ -80,8 +80,8 @@ export const Experience: React.FC = () => {
                               key={achievementIndex}
                               className="flex items-start gap-3 group"
                             >
-                              <div className="mt-2 w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 group-hover:scale-150 transition-transform duration-200" />
-                              <p className="text-sm md:text-base text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-200">
+                              <div className="mt-2 w-1.5 h-1.5 bg-accent rounded-full flex-shrink-0 group-hover:scale-150 group-hover:animate-glow transition-all duration-smooth" />
+                              <p className="text-sm md:text-base text-muted-foreground leading-relaxed group-hover:text-foreground transition-all duration-smooth group-hover:translate-x-1">
                                 {achievement}
                               </p>
                             </div>

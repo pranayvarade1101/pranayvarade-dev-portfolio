@@ -140,7 +140,7 @@ export const Contact: React.FC = () => {
                     href={info.href}
                     target={info.href.startsWith('http') ? '_blank' : undefined}
                     rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="flex items-center gap-4 p-4 rounded-lg border border-border hover:bg-secondary/50 transition-colors duration-200 group"
+                    className="flex items-center gap-4 p-4 rounded-lg border border-border hover:bg-secondary/50 transition-all duration-smooth group elegant-hover"
                   >
                     <div className={`p-3 rounded-lg ${info.bgColor}`}>
                       <info.icon className={`h-5 w-5 ${info.color}`} />
@@ -166,7 +166,7 @@ export const Contact: React.FC = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`p-4 bg-secondary rounded-lg transition-all duration-200 hover:scale-110 hover:shadow-medium ${social.color}`}
+                    className={`p-4 bg-secondary rounded-lg transition-all duration-smooth hover:scale-125 hover:shadow-strong hover:rotate-12 ${social.color}`}
                     aria-label={social.label}
                   >
                     <social.icon className="h-6 w-6" />
